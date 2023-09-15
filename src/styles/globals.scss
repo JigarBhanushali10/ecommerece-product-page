@@ -54,9 +54,25 @@ body,
   --bs-body-font-family: "Kumbh Sans", sans-serif;
   --us-primary: hsl(26, 100%, 55%);
 }
-
 .txt-primary {
   color: var(--us-primary);
+}
+
+.offcanvas.offcanvas-start {
+  --bs-offcanvas-width: 250px;
+}
+.nav-item {
+  padding: 0 0.5rem;
+  @include media-breakpoint-up(lg) {
+    padding: 0 1rem;
+  }
+}
+// icons
+.icon-minus {
+  font-size: 4px;
+}
+.icon-plus {
+  font-size: 12px;
 }
 
 .btn-primary {

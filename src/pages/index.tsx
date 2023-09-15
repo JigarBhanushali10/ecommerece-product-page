@@ -5,22 +5,26 @@ import productThumbnail1 from "../assets/images/image-product-1-thumbnail.jpg";
 import productThumbnail2 from "../assets/images/image-product-2-thumbnail.jpg";
 import productThumbnail3 from "../assets/images/image-product-3-thumbnail.jpg";
 import productThumbnail4 from "../assets/images/image-product-4-thumbnail.jpg";
+import user from "../assets/images/image-avatar.png";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className="container-xxl p-0 h-100">
+    <div className="container-xxl   p-0 h-100">
       <div className="d-flex flex-column h-100">
-        <nav className="navbar navbar-expand-sm border-sm-1 border-bottom py-4">
-          <div className="container-fluid p-0">
-            <span
-              className="navbar-toggler-icon d-block d-sm-none cursor-pointer"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasNavbar"
-              aria-controls="offcanvasNavbar"
-              aria-label="Toggle navigation"
-            ></span>
+        <nav className="navbar navbar-expand-sm border-sm-1 border-bottom py-sm-4 ">
+          <div className="container-fluid p-xxl-0">
+            <div className="d-flex align-items-center">
+              <span
+                className="icon icon-menu d-block d-sm-none cursor-pointer mx-4"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar"
+                aria-label="Toggle navigation"
+              ></span>
+              <span className="icon icon-logo fs-3 mx-1 mx-md-0"></span>
+            </div>
 
             <div
               className="offcanvas offcanvas-start"
@@ -29,24 +33,13 @@ export default function Home() {
             >
               <div className="offcanvas-header">
                 <span
-                  className="icon-close cursor-pointer"
+                  className=" icon icon-close cursor-pointer"
                   data-bs-dismiss="offcanvas"
                   aria-label="Close"
                 ></span>
               </div>
               <div className="offcanvas-body">
                 <ul className="navbar-nav justify-content-start align-items-sm-center flex-grow-1">
-                  <li className="nav-item me-5 d-none d-sm-block">
-                    <h2 className="fw-bold">
-                      <a
-                        className="nav-link active"
-                        aria-current="page"
-                        href="#"
-                      >
-                        sneakers
-                      </a>
-                    </h2>
-                  </li>
                   <li className="nav-item">
                     <a className="nav-link active" aria-current="page" href="#">
                       Collection
@@ -81,9 +74,13 @@ export default function Home() {
               </li>
               <li className="nav-item ">
                 <a className="nav-link rounded-circle " href="#">
-                  <span className="icon icon-avatar"></span>
-                  {/* todo show profile if login */}
-                  <img src="" alt="" />
+                  <Image
+                    src={user}
+                    alt="user image"
+                    className="user-avatar"
+                    height={40}
+                    width={40}
+                  />
                 </a>
               </li>
             </ul>
@@ -95,7 +92,7 @@ export default function Home() {
               <Image
                 src={productImg1}
                 alt="Picture of the shoes"
-                className="product-img my-4 img-fluid"
+                className="product-img my-sm-4 img-fluid"
               />
               <div className="product-thumbnails  d-none d-sm-flex justify-content-between">
                 <Image
@@ -122,7 +119,9 @@ export default function Home() {
             </div>
             {/* <div className="col-1"></div> */}
             <div className="product-info  d-flex flex-column px-4 p-sm-0 justify-content-center">
-              <h6 className="text-uppercase fw-bold">sneaker company</h6>
+              <h6 className="text-uppercase fw-bold txt-primary">
+                sneaker company
+              </h6>
               <p className="fs-1 text-capitalize fw-bold">
                 Fall limited edition sneakers
               </p>
@@ -140,10 +139,10 @@ export default function Home() {
               </div>
               <div className="d-flex flex-wrap justify-content-between align-items-center ">
                 <div className="col-12 col-lg-4">
-                  <div className="quantity-counter d-flex justify-content-between px-3 py-3 bg-body-tertiary  rounded-3 mb-3 mb-lg-0">
-                    <span className="txt-primary">-</span>
+                  <div className="quantity-counter d-flex justify-content-between align-items-center px-3 py-3 bg-body-tertiary  rounded-3 mb-3 mb-lg-0">
+                    <span className="icon icon-minus "></span>
                     <span className="fw-bold">0</span>
-                    <span className="txt-primary">+</span>
+                    <span className="icon icon-plus"></span>
                   </div>
                 </div>
                 <div className="col-12 col-lg-7">
