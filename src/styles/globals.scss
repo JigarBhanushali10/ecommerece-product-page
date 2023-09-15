@@ -22,13 +22,11 @@ body,
 @import "../assets/font-icons/style.scss";
 
 // 2. Include any default variable overrides here
-
 // 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
 @import "../../node_modules/bootstrap/scss/variables";
 @import "../../node_modules/bootstrap/scss/variables-dark";
 
 // 4. Include any default map overrides here
-
 // 5. Include remainder of required parts
 @import "../../node_modules/bootstrap/scss/maps";
 @import "../../node_modules/bootstrap/scss/mixins";
@@ -43,7 +41,6 @@ body,
 @import "../../node_modules/bootstrap/scss/images";
 @import "../../node_modules/bootstrap/scss/nav";
 @import "../../node_modules/bootstrap/scss/navbar";
-@import "../../node_modules/bootstrap/scss/containers";
 @import "../../node_modules/bootstrap/scss/grid";
 @import "../../node_modules/bootstrap/scss/helpers";
 @import "../../node_modules/bootstrap/scss/offcanvas";
@@ -55,4 +52,65 @@ body,
 // 8. Add additional custom code here
 :root {
   --bs-body-font-family: "Kumbh Sans", sans-serif;
+  --us-primary: hsl(26, 100%, 55%);
+}
+
+.txt-primary {
+  color: var(--us-primary);
+}
+
+.btn-primary {
+  --bs-btn-color: white;
+  --bs-btn-bg: hsl(26, 100%, 55%);
+  --bs-btn-border-color: hsl(26, 100%, 55%);
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: hsl(25, 100%, 72%);
+  --bs-btn-hover-border-color: #hsl(25, 100%, 72%);
+  --bs-btn-focus-shadow-rgb: 217, 106, 22;
+  --bs-btn-active-color: white;
+  --bs-btn-active-bg: hsl(25, 100%, 72%);
+  --bs-btn-active-border-color: #hsl(25, 100%, 72%);
+  --bs-btn-focus-box-shadow: 0px 20px 51px -1rem rgba(217, 106, 22, 0.5);
+  --bs-btn-disabled-color: white;
+  --bs-btn-disabled-bg: hsl(25, 100%, 72%);
+  --bs-btn-disabled-border-color: hsl(25, 100%, 72%);
+  box-shadow: 0px 20px 51px -1rem hsl(26, 100%, 55%);
+  border: 0;
+  &:hover {
+    box-shadow: var(--bs-btn-focus-box-shadow);
+    border: 0;
+  }
+}
+
+.product- {
+  &page {
+    gap: 2rem;
+  }
+  &preview,
+  &info {
+    max-width: 500px;
+  }
+
+  &thumbnail {
+    max-width: 100px;
+  }
+}
+
+@media (min-width: 576px) {
+  .product- {
+    &img {
+      border-radius: var(--bs-border-radius-xl);
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .product- {
+    &img {
+      border-radius: var(--bs-border-radius-xl);
+    }
+
+    &page {
+      gap: 7rem;
+    }
+  }
 }
