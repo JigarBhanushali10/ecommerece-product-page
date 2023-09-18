@@ -53,6 +53,12 @@ body,
 :root {
   --bs-body-font-family: "Kumbh Sans", sans-serif;
   --us-primary: hsl(26, 100%, 55%);
+  --us-primary-light: hsl(25 99% 72%);
+  --us-primary-lighter: hsl(25, 100%, 94%);
+  --us-secondary: hsl(219, 9%, 45%);
+  --us-secondary-light: hsl(223, 64%, 98%);
+  --us-dark: hsl(0, 0%, 0%);
+  --us-light: hsl(0, 0%, 100%);
 }
 .txt-primary {
   color: var(--us-primary);
@@ -61,41 +67,116 @@ body,
 .offcanvas.offcanvas-start {
   --bs-offcanvas-width: 250px;
 }
+.offcanvas- {
+  &header {
+    --bs-offcanvas-padding-y: 2rem;
+  }
+  &body {
+    @include media-breakpoint-down(sm) {
+      font-weight: 700;
+    }
+    @include media-breakpoint-up(sm) {
+      .nav-link {
+        position: relative;
+        &:hover::after {
+          content: "";
+          width: 100%;
+          height: 4px;
+          background-color: var(--us-primary);
+          bottom: -38px;
+          position: absolute;
+          left: 3px;
+        }
+      }
+    }
+  }
+}
 .nav-item {
+  --bs-nav-link-color: var(--us-secondary);
+  --bs-nav-link-hover-color: var(--us-dark);
   padding: 0 0.5rem;
   @include media-breakpoint-up(lg) {
     padding: 0 1rem;
   }
+  .user-avatar {
+    height: 30px;
+    width: 30px;
+    @include media-breakpoint-up(sm) {
+      height: 50px;
+      width: 50px;
+    }
+    border: 2px solid transparent;
+    &:hover {
+      border: 2px solid var(--us-primary);
+    }
+  }
 }
-// icons
+
+// icons styles
 .icon-minus {
+  color: var(--us-primary);
   font-size: 4px;
+  cursor: pointer;
+  &:hover {
+    color: var(--us-primary-light);
+  }
 }
 .icon-plus {
+  color: var(--us-primary);
   font-size: 12px;
+  cursor: pointer;
+  &:hover {
+    color: var(--us-primary-light);
+  }
+}
+.icon-shopping-cart {
+  font-size: large;
+  .cart-badge {
+    font-size: 12px;
+    font-weight: 700;
+    top: -4px;
+    background-color: var(--us-primary);
+    color: var(--us-light);
+    right: -5px;
+  }
 }
 
 .btn-primary {
   --bs-btn-color: white;
-  --bs-btn-bg: hsl(26, 100%, 55%);
-  --bs-btn-border-color: hsl(26, 100%, 55%);
+  --bs-btn-bg: var(--us-primary);
+  --bs-btn-border-color: var(--us-primary);
   --bs-btn-hover-color: white;
-  --bs-btn-hover-bg: hsl(25, 100%, 72%);
-  --bs-btn-hover-border-color: #hsl(25, 100%, 72%);
+  --bs-btn-hover-bg: var(--us-primary-light);
+  --bs-btn-hover-border-color: #var(--us-primary-light);
   --bs-btn-focus-shadow-rgb: 217, 106, 22;
   --bs-btn-active-color: white;
-  --bs-btn-active-bg: hsl(25, 100%, 72%);
-  --bs-btn-active-border-color: #hsl(25, 100%, 72%);
+  --bs-btn-active-bg: var(--us-primary-light);
+  --bs-btn-active-border-color: #var(--us-primary-light);
   --bs-btn-focus-box-shadow: 0px 20px 51px -1rem rgba(217, 106, 22, 0.5);
   --bs-btn-disabled-color: white;
-  --bs-btn-disabled-bg: hsl(25, 100%, 72%);
-  --bs-btn-disabled-border-color: hsl(25, 100%, 72%);
-  box-shadow: 0px 20px 51px -1rem hsl(26, 100%, 55%);
+  --bs-btn-disabled-bg: var(--us-primary-light);
+  --bs-btn-disabled-border-color: var(--us-primary-light);
+  box-shadow: 0px 20px 51px -1rem var(--us-primary);
   border: 0;
   &:hover {
     box-shadow: var(--bs-btn-focus-box-shadow);
     border: 0;
   }
+}
+
+.quantity-counter {
+  background-color: var(--us-secondary-light);
+}
+
+.discount-badge {
+  font-weight: 600;
+  color: var(--us-primary);
+  background-color: var(--us-primary-lighter);
+  padding: 0 5px;
+  border-radius: 5px;
+}
+.original-price {
+  color: hsl(220, 14%, 75%);
 }
 
 .product- {
@@ -109,6 +190,9 @@ body,
 
   &thumbnail {
     max-width: 100px;
+  }
+  &description {
+    color: var(--us-secondary);
   }
 }
 

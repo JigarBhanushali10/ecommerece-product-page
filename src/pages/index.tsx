@@ -5,7 +5,7 @@ import productThumbnail1 from "../assets/images/image-product-1-thumbnail.jpg";
 import productThumbnail2 from "../assets/images/image-product-2-thumbnail.jpg";
 import productThumbnail3 from "../assets/images/image-product-3-thumbnail.jpg";
 import productThumbnail4 from "../assets/images/image-product-4-thumbnail.jpg";
-import user from "../assets/images/image-avatar.png";
+import Header from "@/app/core/layouts/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,79 +13,7 @@ export default function Home() {
   return (
     <div className="container-xxl   p-0 h-100">
       <div className="d-flex flex-column h-100">
-        <nav className="navbar navbar-expand-sm border-sm-1 border-bottom py-sm-4 ">
-          <div className="container-fluid p-xxl-0">
-            <div className="d-flex align-items-center">
-              <span
-                className="icon icon-menu d-block d-sm-none cursor-pointer mx-4"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar"
-                aria-controls="offcanvasNavbar"
-                aria-label="Toggle navigation"
-              ></span>
-              <span className="icon icon-logo fs-3 mx-1 mx-md-0"></span>
-            </div>
-
-            <div
-              className="offcanvas offcanvas-start"
-              id="offcanvasNavbar"
-              aria-labelledby="offcanvasNavbarLabel"
-            >
-              <div className="offcanvas-header">
-                <span
-                  className=" icon icon-close cursor-pointer"
-                  data-bs-dismiss="offcanvas"
-                  aria-label="Close"
-                ></span>
-              </div>
-              <div className="offcanvas-body">
-                <ul className="navbar-nav justify-content-start align-items-sm-center flex-grow-1">
-                  <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">
-                      Collection
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Men
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Women
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      About
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Contact
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <ul className="navbar-nav flex-row align-items-center">
-              <li className="nav-item">
-                <a className="nav-link icon icon-shopping-cart" href="#"></a>
-              </li>
-              <li className="nav-item ">
-                <a className="nav-link rounded-circle " href="#">
-                  <Image
-                    src={user}
-                    alt="user image"
-                    className="user-avatar"
-                    height={40}
-                    width={40}
-                  />
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+        <Header></Header>
         <main className="flex-grow-1 overflow-auto">
           <div className="product-page justify-content-center d-flex flex-wrap flex-md-nowrap p-sm-2 p-lg-5">
             <div className="product-preview ">
@@ -125,21 +53,21 @@ export default function Home() {
               <p className="fs-1 text-capitalize fw-bold">
                 Fall limited edition sneakers
               </p>
-              <p>
+              <p className="product-description">
                 These low-profile sneakers are your perfect casual wear
                 companion. Featuring a durable rubber outer sole,they'll
                 withstand everything the weather can offer
               </p>
-              <div className="d-flex flex-column mb-3">
-                <div>
-                  <span className="fs-3 fw-bold">$125.00</span>
-                  <span>50%</span>
+              <div className="d-flex flex-sm-column align-items-center align-items-sm-start justify-content-between mb-4">
+                <div className="d-flex align-items-center">
+                  <span className="fs-3 fw-bold me-3">$125.00</span>
+                  <span className="discount-badge">50%</span>
                 </div>
-                <s className="fw-bold">$250</s>
+                <s className="original-price fw-bold">$250.00</s>
               </div>
-              <div className="d-flex flex-wrap justify-content-between align-items-center ">
+              <div className="d-flex flex-wrap justify-content-between align-items-center mb-4">
                 <div className="col-12 col-lg-4">
-                  <div className="quantity-counter d-flex justify-content-between align-items-center px-3 py-3 bg-body-tertiary  rounded-3 mb-3 mb-lg-0">
+                  <div className="quantity-counter d-flex justify-content-between align-items-center px-3 py-3 rounded-3 mb-3 mb-lg-0">
                     <span className="icon icon-minus "></span>
                     <span className="fw-bold">0</span>
                     <span className="icon icon-plus"></span>
