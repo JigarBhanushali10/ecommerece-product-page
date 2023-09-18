@@ -6,10 +6,15 @@ import productThumbnail2 from "../assets/images/image-product-2-thumbnail.jpg";
 import productThumbnail3 from "../assets/images/image-product-3-thumbnail.jpg";
 import productThumbnail4 from "../assets/images/image-product-4-thumbnail.jpg";
 import Header from "@/app/core/layouts/Header";
+import QuantityCounter from "@/app/shared/components/QuantityCounter";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const getQuantity = (quantity: number) => {
+    console.log("got quantity", quantity);
+  };
+
   return (
     <div className="container-xxl   p-0 h-100">
       <div className="d-flex flex-column h-100">
@@ -45,7 +50,6 @@ export default function Home() {
                 />
               </div>
             </div>
-            {/* <div className="col-1"></div> */}
             <div className="product-info  d-flex flex-column px-4 p-sm-0 justify-content-center">
               <h6 className="text-uppercase fw-bold txt-primary">
                 sneaker company
@@ -56,7 +60,7 @@ export default function Home() {
               <p className="product-description">
                 These low-profile sneakers are your perfect casual wear
                 companion. Featuring a durable rubber outer sole,they'll
-                withstand everything the weather can offer
+                withstand everything the weather can offer.
               </p>
               <div className="d-flex flex-sm-column align-items-center align-items-sm-start justify-content-between mb-4">
                 <div className="d-flex align-items-center">
@@ -67,11 +71,7 @@ export default function Home() {
               </div>
               <div className="d-flex flex-wrap justify-content-between align-items-center mb-4">
                 <div className="col-12 col-lg-4">
-                  <div className="quantity-counter d-flex justify-content-between align-items-center px-3 py-3 rounded-3 mb-3 mb-lg-0">
-                    <span className="icon icon-minus "></span>
-                    <span className="fw-bold">0</span>
-                    <span className="icon icon-plus"></span>
-                  </div>
+                  <QuantityCounter getQuantity={getQuantity}></QuantityCounter>
                 </div>
                 <div className="col-12 col-lg-7">
                   <button className="btn btn-primary w-100 py-3 rounded-3 fw-bold">

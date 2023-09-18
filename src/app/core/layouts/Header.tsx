@@ -1,7 +1,11 @@
 import Image from "next/image";
 import user from "../../../assets/images/image-avatar.png";
+import Cart from "@/app/shared/components/Cart";
+import { useState } from "react";
 
 function Header() {
+  const [isCartOpen, toggleCart] = useState(false);
+
   return (
     <header>
       <nav className="navbar navbar-expand-sm border-sm-1 border-bottom py-sm-4 ">
@@ -64,8 +68,9 @@ function Header() {
               <a
                 className="nav-link icon icon-shopping-cart position-relative"
                 href="#"
+                onClick={() => toggleCart(!isCartOpen)}
               >
-                <span className="cart-badge position-absolute  badge rounded-pill text-center py-1 px-2">
+                <span className="cart-badge position-absolute badge rounded-pill text-center py-1 px-2">
                   3
                 </span>
               </a>
@@ -81,6 +86,7 @@ function Header() {
             </li>
           </ul>
         </div>
+        {isCartOpen && <Cart></Cart>}
       </nav>
     </header>
   );
