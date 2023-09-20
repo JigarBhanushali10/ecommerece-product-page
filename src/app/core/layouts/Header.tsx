@@ -1,10 +1,39 @@
 import Image from "next/image";
 import user from "../../../assets/images/image-avatar.png";
 import Cart from "@/app/shared/components/Cart";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { CartContext } from "@/app/shared/contexts/CartContext";
 
 function Header() {
   const [isCartOpen, toggleCart] = useState(false);
+
+  const { cart } = useContext(CartContext);
+
+  const [cartIsHighlighted, setCartIsHighlighted] = useState(false);
+
+  const badgeClass = ` ${cartIsHighlighted ? "gelatine" : ""}`;
+
+  const cartItemNumber = cart.reduce(
+    (count: any, curItem: { quantity: any }) => {
+      return count + curItem.quantity;
+    },
+    0
+  );
+
+  useEffect(() => {
+    if (cart.length === 0) {
+      return;
+    }
+    setCartIsHighlighted(true);
+
+    const timer = setTimeout(() => {
+      setCartIsHighlighted(false);
+    }, 500);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [cart]);
 
   return (
     <header>
@@ -70,9 +99,13 @@ function Header() {
                 href="#"
                 onClick={() => toggleCart(!isCartOpen)}
               >
-                <span className="cart-badge position-absolute badge rounded-pill text-center py-1 px-2">
-                  3
-                </span>
+                {cart.length > 0 && (
+                  <span
+                    className={`${badgeClass} cart-badge position-absolute badge rounded-pill text-center py-1 px-2`}
+                  >
+                    {cartItemNumber}
+                  </span>
+                )}
               </a>
             </li>
             <li className="nav-item ">

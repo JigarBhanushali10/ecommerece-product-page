@@ -112,6 +112,29 @@ body,
   }
 }
 
+.gelatine {
+  animation: gelatine 0.5s;
+}
+
+@keyframes gelatine {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+
 // cart
 
 .cart {
@@ -126,6 +149,17 @@ body,
   }
   .item-description {
     color: var(--us-secondary);
+  }
+  @media (max-width: 375px) {
+    width: 96%;
+  }
+  .empty-cart {
+    height: 140px;
+    min-width: 325px;
+    @media (min-width: 375px) {
+      min-width: 335px;
+      max-width: 366px;
+    }
   }
 }
 
@@ -215,6 +249,18 @@ body,
 
   &thumbnail {
     max-width: 100px;
+    cursor: pointer;
+    &:hover {
+      img {
+        opacity: 0.4;
+      }
+    }
+    &.active {
+      img {
+        opacity: 0.4;
+      }
+      border: 2px solid var(--us-primary);
+    }
   }
   &description {
     color: var(--us-secondary);
