@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'e-commerce';
-  src:  url('fonts/e-commerce.eot?f04da7');
-  src:  url('fonts/e-commerce.eot?f04da7#iefix') format('embedded-opentype'),
-    url('fonts/e-commerce.ttf?f04da7') format('truetype'),
-    url('fonts/e-commerce.woff?f04da7') format('woff'),
-    url('fonts/e-commerce.svg?f04da7#e-commerce') format('svg');
+  src:  url('fonts/e-commerce.eot?v8g9tk');
+  src:  url('fonts/e-commerce.eot?v8g9tk#iefix') format('embedded-opentype'),
+    url('fonts/e-commerce.ttf?v8g9tk') format('truetype'),
+    url('fonts/e-commerce.woff?v8g9tk') format('woff'),
+    url('fonts/e-commerce.svg?v8g9tk#e-commerce') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -45,16 +45,16 @@
   content: "\e904";
   color: #ff7e1b;
 }
-.icon-next:before {
-  content: "\e905";
-}
 .icon-plus:before {
   content: "\e906";
   color: #ff7e1b;
 }
-.icon-previous:before {
-  content: "\e907";
-}
 .icon-logo:before {
   content: "\e908";
+}
+.icon-next:before {
+  content: "\e907";
+}
+.icon-previous:before {
+  content: "\e905";
 }

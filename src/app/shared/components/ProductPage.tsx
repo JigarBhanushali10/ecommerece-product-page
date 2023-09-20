@@ -1,18 +1,12 @@
-import { useContext, useState } from "react";
-import Image from "next/image";
-
-import productImg1 from "../../../assets/images/image-product-1.jpg";
-import productImg2 from "../../../assets/images/image-product-2.jpg";
-import productImg3 from "../../../assets/images/image-product-3.jpg";
-import productImg4 from "../../../assets/images/image-product-4.jpg";
-import productThumbnail1 from "../../../assets/images/image-product-1-thumbnail.jpg";
-import productThumbnail2 from "../../../assets/images/image-product-2-thumbnail.jpg";
-import productThumbnail3 from "../../../assets/images/image-product-3-thumbnail.jpg";
-import productThumbnail4 from "../../../assets/images/image-product-4-thumbnail.jpg";
+import { useContext, useEffect, useState } from "react";
 import { GlobalStoreContext } from "../contexts/GlobalStore";
 import { ProductType } from "../local database/db";
 import QuantityCounter from "./QuantityCounter";
 import { CartContext } from "../contexts/CartContext";
+import LightBox from "./LightBox";
+import ModalPortal from "@/app/core/layouts/ModalPortal";
+import { LightBoxContent } from "../contexts/LightBoxContext";
+import LightBoxWrapper from "./LightBoxWrapper";
 
 function ProductPage() {
   const products = useContext(GlobalStoreContext);
@@ -20,31 +14,7 @@ function ProductPage() {
   const [quantity, setQuantity] = useState(0);
 
   const { addProductToCart } = useContext(CartContext);
-
-  const [productImage, setProductImage] = useState({
-    image: productImg1,
-    key: 1,
-  });
-
-  const setMainProductImage = (key: number) => {
-    switch (key) {
-      case 1:
-        setProductImage({ image: productImg1, key });
-        break;
-      case 2:
-        setProductImage({ image: productImg2, key });
-        break;
-      case 3:
-        setProductImage({ image: productImg3, key });
-        break;
-      case 4:
-        setProductImage({ image: productImg4, key });
-        break;
-      default:
-        setProductImage({ image: productImg1, key });
-        break;
-    }
-  };
+  const { isLightBoxVisible, toggleLightBox } = useContext(LightBoxContent);
 
   const increaseQuantity = () => {
     setQuantity((pre) => {
@@ -64,64 +34,28 @@ function ProductPage() {
     }
   };
 
+  const forceCloseLightBox = () => {
+    if (window.innerWidth < 576) {
+      toggleLightBox(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", forceCloseLightBox);
+    return () => {
+      window.removeEventListener("resize", forceCloseLightBox);
+    };
+  }, []);
+
   return (
     <div className="product-page justify-content-center d-flex flex-wrap flex-md-nowrap p-sm-2 p-lg-5">
-      <div className="product-preview ">
-        <Image
-          src={productImage.image}
-          alt="Picture of the shoes"
-          className="product-img my-sm-4 img-fluid"
-        />
-        <div className="product-thumbnails  d-none d-sm-flex justify-content-between">
-          <div
-            className={`${
-              productImage.key === 1 && "active"
-            } productImage product-thumbnail me-1  rounded-3 overflow-hidden`}
-            onClick={() => setMainProductImage(1)}
-          >
-            <Image
-              src={productThumbnail1}
-              alt="Picture of the shoes"
-              className="img-fluid"
-            />
-          </div>
-          <div
-            className={`${
-              productImage.key === 2 && "active"
-            } productImage product-thumbnail mx-1  rounded-3 overflow-hidden`}
-            onClick={() => setMainProductImage(2)}
-          >
-            <Image
-              src={productThumbnail2}
-              alt="Picture of the shoes"
-              className="img-fluid"
-            />
-          </div>
-          <div
-            className={`${
-              productImage.key === 3 && "active"
-            } productImage product-thumbnail mx-1  rounded-3 overflow-hidden`}
-            onClick={() => setMainProductImage(3)}
-          >
-            <Image
-              src={productThumbnail3}
-              alt="Picture of the shoes"
-              className="img-fluid"
-            />
-          </div>
-          <div
-            className={`${
-              productImage.key === 4 && "active"
-            } productImage product-thumbnail ms-1  rounded-3 overflow-hidden`}
-            onClick={() => setMainProductImage(4)}
-          >
-            <Image
-              src={productThumbnail4}
-              alt="Picture of the shoes"
-              className="img-fluid"
-            />
-          </div>
-        </div>
+      <div className="product-preview">
+        {isLightBoxVisible && (
+          <ModalPortal>
+            <LightBoxWrapper></LightBoxWrapper>
+          </ModalPortal>
+        )}
+        <LightBox isSliderControlVisible={true}></LightBox>
       </div>
       <div className="product-info  d-flex flex-column px-4 p-sm-0 justify-content-center">
         {products.map((product: ProductType) => {
