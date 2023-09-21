@@ -57,11 +57,11 @@ function ProductPage() {
         )}
         <LightBox isSliderControlVisible={true}></LightBox>
       </div>
-      <div className="product-info  d-flex flex-column px-4 p-sm-0 justify-content-center">
+      <div className="product-info  d-flex flex-column px-4 p-sm-0 pt-md-4 justify-content-center">
         {products.map((product: ProductType) => {
           return (
             <div key={product.id}>
-              <h6 className="text-uppercase fw-bold txt-primary">
+              <h6 className="text-uppercase product-brand fw-bold txt-primary mt-lg-4">
                 sneaker company
               </h6>
               <p className="fs-1 text-capitalize fw-bold">{product.name}</p>
@@ -79,7 +79,7 @@ function ProductPage() {
                 </div>
                 <s className="original-price fw-bold">$250.00</s>
               </div>
-              <div className="d-flex flex-wrap justify-content-between align-items-center mb-4">
+              <div className="d-flex flex-wrap justify-content-between align-items-center mt-3 mt-lg-5">
                 <div className="col-12 col-lg-4">
                   <QuantityCounter
                     increaseQuantity={increaseQuantity}

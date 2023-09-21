@@ -116,7 +116,11 @@ function LightBox({ isSliderControlVisible }: any) {
           <span className="icon icon-next "></span>
         </span>
       </div>
-      <div className="product-thumbnails d-none d-sm-flex justify-content-between">
+      <div
+        className={`${
+          !isSliderControlVisible ? "px-4" : ""
+        } product-thumbnails d-none d-sm-flex justify-content-between`}
+      >
         <div
           className={`${
             productImage.key === 1 ? "active" : ""

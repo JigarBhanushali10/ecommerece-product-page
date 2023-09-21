@@ -12,7 +12,7 @@ export default function Home() {
     <GlobalStore>
       <LightBoxContextProvider>
         <CartContextProvider>
-          <div className="container-xxl p-0 h-100">
+          <div className="wrapper p-0 h-100">
             <div className="d-flex flex-column h-100">
               <Header></Header>
               <main className="flex-grow-1 overflow-auto">

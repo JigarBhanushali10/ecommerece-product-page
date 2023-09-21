@@ -39,7 +39,7 @@ function Header() {
     <header>
       <nav className="navbar navbar-expand-sm border-sm-1 border-bottom py-sm-4 ">
         <div className="container-fluid p-xxl-0">
-          <div className="d-flex align-items-center">
+          <div className="d-flex align-items-center me-3">
             <span
               className="icon icon-menu d-block d-sm-none cursor-pointer mx-2"
               data-bs-toggle="offcanvas"
@@ -66,7 +66,7 @@ function Header() {
               <ul className="navbar-nav justify-content-start align-items-sm-center flex-grow-1">
                 <li className="nav-item">
                   <a className="nav-link active" aria-current="page" href="#">
-                    Collection
+                    Collections
                   </a>
                 </li>
                 <li className="nav-item">
